@@ -14,9 +14,18 @@ tableData.forEach(function(ufoEntry) {
    Object.entries(ufoEntry).forEach(function([key, value]){
      //console.log(key, value);
 
-     entryCell = row.append("td");
+     let entryCell = row.append("td");
      //console.log(entryCell);
      entryCell.text(value);
 
    })
+})
+
+// Date Search Button
+let dateSearch = d3.select("#filter-btn");
+dateSearch.on("click", function(){
+
+// Clear out row data
+  tbody.html("");
+
 })
