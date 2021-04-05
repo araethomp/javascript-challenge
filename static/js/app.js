@@ -12,16 +12,17 @@ tableData.forEach(function(ufoEntry) {
    let row = tbody.append("tr");
 
    Object.entries(ufoEntry).forEach(function([key, value]){
-     //console.log(key, value);
+     console.log(key, value);
 
      let entryCell = row.append("td");
-     //console.log(entryCell);
+     console.log(entryCell);
      entryCell.text(value);
-
    })
 })
 
+
 // Date Search Button
+
 let dateSearch = d3.select("#filter-btn");
 dateSearch.on("click", function(){
 
@@ -31,9 +32,18 @@ dateSearch.on("click", function(){
 // Grab input dates
   let dateGrab = d3.select("#datetime");
   let valueGrab = dateGrab.property("value");
-  //console.log(valueGrab);
+  console.log(valueGrab);
 // Filter dates
   let filteredDates = tableData.filter(date => date.datetime === valueGrab);
-  //console.log(filteredDates);
+  console.log(filteredDates);
 
+// Add entries
+  filteredDates.forEach(function(sightings) {
+  let appendedRows = tbody.append("tr");
+  Object.entries(sightings).forEach(function([key, value]) {
+    console.log(key, value);
+  let lastCell = tbody.append("td");
+  lastCell.text(value);
+  })
+  })
 })
