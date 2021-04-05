@@ -28,4 +28,12 @@ dateSearch.on("click", function(){
 // Clear out row data
   tbody.html("");
 
+// Grab input dates
+  let dateGrab = d3.select("#datetime");
+  let valueGrab = dateGrab.property("value");
+  //console.log(valueGrab);
+// Filter dates
+  let filteredDates = tableData.filter(date => date.datetime === valueGrab);
+  //console.log(filteredDates);
+
 })
